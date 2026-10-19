@@ -11,9 +11,12 @@
 body.night { --dim: .78; --text: .55; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { width: 1920px; height: 1080px; overflow: hidden; background: #0b0b0d; color: var(--cream); font-family: T, sans-serif; cursor: none; }
+html, body { width: 100vw; height: 100vh; overflow: hidden; background: #0b0b0d; color: var(--cream); font-family: T, sans-serif; cursor: none; }
+/* التصميم مرسوم على ١٩٢٠×١٠٨٠ ويتكبّر/يتصغّر ليملأ أي شاشة */
+#root { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; overflow: hidden; }
 
-#bg, #shade, .ph { position: absolute; inset: 0; }
+#bg, #shade { position: absolute; inset: 0; }
+.ph { position: absolute; inset: -60px; }
 .ph { background-size: cover; background-position: center; opacity: 0; transition: opacity 2.5s ease; animation: drift 180s ease-in-out infinite alternate; }
 .ph.on { opacity: 1; }
 @keyframes drift { from { transform: scale(1.04) translateX(-20px); } to { transform: scale(1.09) translateX(20px); } }

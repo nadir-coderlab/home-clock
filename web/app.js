@@ -156,7 +156,15 @@ function tick() {
   setTimeout(tick, 1000 - (Date.now() % 1000));
 }
 
+function fit() {
+  const k = Math.min(innerWidth / 1920, innerHeight / 1080);
+  const r = $('root');
+  r.style.transform = `translate(${(innerWidth - 1920 * k) / 2}px, ${(innerHeight - 1080 * k) / 2}px) scale(${k})`;
+}
+addEventListener('resize', fit);
+
 (async () => {
+  fit();
   try { HOL = await (await fetch('holidays.json?' + Date.now())).json(); } catch {}
   tick();
   weather(); setInterval(weather, 15 * 60000);
