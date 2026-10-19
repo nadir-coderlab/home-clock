@@ -1,0 +1,60 @@
+@font-face { font-family: T; src: url(fonts/thmanyah-300.otf); font-weight: 300; }
+@font-face { font-family: T; src: url(fonts/thmanyah-400.otf); font-weight: 400; }
+@font-face { font-family: T; src: url(fonts/thmanyah-500.otf); font-weight: 500; }
+@font-face { font-family: T; src: url(fonts/thmanyah-700.otf); font-weight: 700; }
+
+:root {
+  --cream: #f7f1e6; --soft: rgba(247,241,230,.72); --faint: rgba(247,241,230,.5);
+  --amber: #f6c177; --mint: #9ee0b8; --glass: rgba(16,16,20,.35); --line: rgba(255,255,255,.2);
+  --dim: .6; --text: .78;
+}
+body.night { --dim: .78; --text: .55; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: #0b0b0d; color: var(--cream); font-family: T, sans-serif; cursor: none; }
+
+#bg, #shade, .ph { position: absolute; inset: 0; }
+.ph { background-size: cover; background-position: center; opacity: 0; transition: opacity 2.5s ease; animation: drift 180s ease-in-out infinite alternate; }
+.ph.on { opacity: 1; }
+@keyframes drift { from { transform: scale(1.04) translateX(-20px); } to { transform: scale(1.09) translateX(20px); } }
+#shade { background:
+  linear-gradient(to bottom, rgba(0,0,0,.55) 0%, transparent 30%, transparent 62%, rgba(0,0,0,.75) 100%),
+  rgba(0,0,0,var(--dim)); transition: background 4s; }
+
+#stage { position: absolute; inset: 66px 96px; opacity: var(--text); transition: opacity 4s, transform 3s ease; }
+
+#date { position: absolute; top: 0; right: 0; }
+#day { font-size: 40px; font-weight: 700; }
+#dates { font-size: 23px; font-weight: 500; color: var(--soft); }
+
+#clock { position: absolute; right: 0; top: 50%; transform: translateY(-62%); display: flex; align-items: center; font-weight: 300; font-size: 225px; line-height: 1; }
+#ampm { font-size: 45px; font-weight: 500; color: var(--soft); align-self: flex-end; margin: 0 22px 50px 0; }
+.colon { display: flex; flex-direction: column; gap: 36px; margin: 0 22px; }
+.colon i { width: 17px; height: 17px; background: var(--cream); opacity: .85; transform: rotate(45deg); display: block; }
+
+.card { position: absolute; top: 0; left: 0; width: 510px; background: var(--glass); border: 1.5px solid var(--line); border-radius: 27px; padding: 24px 30px; }
+.card .k { font-size: 18px; color: var(--soft); }
+.card .t { font-size: 32px; font-weight: 700; }
+.card .n { font-size: 60px; font-weight: 700; color: var(--amber); line-height: 1.1; }
+.card .n small { font-size: 24px; font-weight: 500; margin-right: 8px; }
+.card .d { font-size: 20px; color: var(--soft); }
+.card hr { border: 0; height: 1.5px; background: var(--line); margin: 18px 0 12px; }
+.card .row { display: flex; align-items: center; gap: 15px; margin-top: 10px; }
+.card .dot { width: 10px; height: 10px; border-radius: 5px; background: var(--amber); opacity: .8; }
+.card .row .x { flex: 1; }
+.card .row .x b { display: block; font-size: 22px; }
+.card .row .x span { font-size: 18px; color: var(--faint); }
+.card .row .w { font-size: 19px; color: var(--soft); white-space: nowrap; }
+.card .foot { margin-top: 14px; font-size: 15px; color: var(--faint); }
+.mint { color: var(--mint) !important; }
+
+#bottom { position: absolute; left: 0; right: 0; bottom: 30px; display: flex; align-items: stretch; }
+.cell { flex: 1; padding: 0 33px; }
+.sep { width: 1.5px; background: var(--line); }
+.lbl { font-size: 18px; color: var(--soft); }
+.big { font-size: 24px; font-weight: 500; white-space: nowrap; }
+.big b { font-size: 45px; font-weight: 700; }
+.big.amber, .big.amber b { color: var(--amber); }
+.sub { font-size: 20px; color: var(--soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#caption { position: absolute; left: 0; bottom: -30px; font-size: 15px; color: var(--faint); direction: ltr; max-width: 780px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.big span { margin-right: 12px; }

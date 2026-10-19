@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920, height=1080">
+<title>ساعة البيت</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="bg"><div class="ph" id="ph0"></div><div class="ph" id="ph1"></div></div>
+<div id="shade"></div>
+
+<main id="stage">
+  <!-- أعلى اليمين: اليوم والتاريخين -->
+  <section id="date">
+    <div id="day"></div>
+    <div id="dates"></div>
+  </section>
+
+  <!-- أعلى اليسار: الإجازات -->
+  <section id="hol" class="card"></section>
+
+  <!-- الساعة -->
+  <section id="clock" dir="ltr">
+    <span id="ampm"></span><span id="hh"></span><span class="colon"><i></i><i></i></span><span id="mm"></span>
+  </section>
+
+  <!-- الأسفل -->
+  <section id="bottom">
+    <div class="cell" id="prayer"><div class="lbl">الصلاة القادمة</div><div class="big"><b id="pName"></b> <span id="pTime"></span></div><div class="sub" id="pIn"></div></div>
+    <div class="sep"></div>
+    <div class="cell" id="ramadan"><div class="lbl">رمضان</div><div class="big amber"><b id="rBig"></b> <span id="rUnit"></span></div><div class="sub" id="rSub"></div></div>
+    <div class="sep"></div>
+    <div class="cell" id="wx"><div class="lbl" id="wLbl"></div><div class="big"><b id="wTemp"></b> <span id="wName"></span></div><div class="sub" id="wSub"></div></div>
+  </section>
+  <div id="caption"></div>
+</main>
+
+<script src="vendor/adhan.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
